@@ -40,6 +40,7 @@ mod tests {
         assert_eq!(two_sum_v1(&nums, 6), Some((1, 2)));
         let nums = vec![3, 3];
         assert_eq!(two_sum_v1(&nums, 6), Some((0, 1)));
+        assert_eq!(two_sum_v1(&nums, 5), None);
     }
     #[test]
     fn test_two_sum_v2() {
@@ -49,5 +50,6 @@ mod tests {
         assert_eq!(two_sum_v2(&nums, 6), Some((1, 2)));
         let nums = vec![3, 3];
         assert_eq!(two_sum_v2(&nums, 6), Some((0, 1)));
+        assert_eq!(two_sum_v2(&nums, 5), None);
     }
 }
