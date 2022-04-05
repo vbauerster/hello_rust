@@ -1,3 +1,4 @@
+// https://stackoverflow.com/questions/30012995/how-can-i-read-non-blocking-from-stdin
 use crossbeam_channel::{bounded, Receiver, RecvTimeoutError};
 use std::fs;
 use std::io;
