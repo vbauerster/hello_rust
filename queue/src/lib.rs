@@ -33,35 +33,39 @@ impl<T> Queue<T> {
     }
 }
 
-#[test]
-fn test() {
-    let mut q = Queue::new();
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test() {
+        let mut q = Queue::new();
 
-    q.push('*');
-    assert_eq!(q.pop(), Some('*'));
-    assert_eq!(q.pop(), None);
+        q.push('*');
+        assert_eq!(q.pop(), Some('*'));
+        assert_eq!(q.pop(), None);
 
-    q.push('0');
-    q.push('1');
-    assert_eq!(q.pop(), Some('0'));
+        q.push('0');
+        q.push('1');
+        assert_eq!(q.pop(), Some('0'));
 
-    q.push('∞');
-    assert_eq!(q.pop(), Some('1'));
-    assert_eq!(q.pop(), Some('∞'));
-    assert_eq!(q.pop(), None);
+        q.push('∞');
+        assert_eq!(q.pop(), Some('1'));
+        assert_eq!(q.pop(), Some('∞'));
+        assert_eq!(q.pop(), None);
 
-    assert!(q.is_empty());
-    q.push('☉');
-    assert!(!q.is_empty());
-    q.pop();
-    assert!(q.is_empty());
+        assert!(q.is_empty());
+        q.push('☉');
+        assert!(!q.is_empty());
+        q.pop();
+        assert!(q.is_empty());
 
-    let mut q = Queue::new();
+        let mut q = Queue::new();
 
-    q.push('P');
-    q.push('D');
-    assert_eq!(q.pop(), Some('P'));
-    q.push('X');
+        q.push('P');
+        q.push('D');
+        assert_eq!(q.pop(), Some('P'));
+        q.push('X');
 
-    assert_eq!(q.split(), (vec!['D'], vec!['X']));
+        assert_eq!(q.split(), (vec!['D'], vec!['X']));
+    }
 }
