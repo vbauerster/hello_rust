@@ -7,7 +7,7 @@ pub fn find_duplicates(nums: Vec<i32>) -> Vec<i32> {
     for n in nums {
         let v = map.entry(n).or_insert(0);
         *v += 1;
-        if *v > 1 {
+        if *v == 2 {
             res.push(n);
         }
     }
