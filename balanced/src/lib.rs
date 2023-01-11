@@ -4,20 +4,15 @@ pub fn balanced(input: &str) -> bool {
     for c in input.chars() {
         match c {
             '(' | '[' | '{' => stack.push(c),
-            ')' => {
-                if stack.pop().filter(|top| *top == '(').is_none() {
-                    return false;
-                }
+            ')' if stack.pop().filter(|top| *top == '(').is_none() => {
+                return false;
             }
-            ']' => {
-                if stack.pop().filter(|top| *top == '[').is_none() {
-                    return false;
-                }
+            ']' if stack.pop().filter(|top| *top == '[').is_none() => {
+                return false;
             }
-            '}' => {
-                if stack.pop().filter(|top| *top == '{').is_none() {
-                    return false;
-                }
+
+            '}' if stack.pop().filter(|top| *top == '{').is_none() => {
+                return false;
             }
             _ => continue,
         }
